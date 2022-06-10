@@ -10,3 +10,11 @@ Running the project will:
 - Calls `GC.Collect()`.
 - Reports whether `Dispose()` and the finaliser were called. 
 - Reports whether anything is locking the DB file.
+
+The output is:
+
+``
+Dispose was called.
+Finaliser was called.
+Locked by: Sqlite.Locking
+``
