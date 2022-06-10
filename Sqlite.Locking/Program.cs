@@ -38,7 +38,7 @@ public class MyContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder options)
     {
-        options.UseSqlite($"Data Source={DbFile}");
+        options.UseSqlite($"Data Source={DbFile};Pooling=false");
     }
 }
 
