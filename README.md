@@ -13,8 +13,8 @@ Running the project will:
 
 The output is:
 
-``
+```
 Dispose was called.
 Finaliser was called.
 Locked by: Sqlite.Locking
-``
+```
