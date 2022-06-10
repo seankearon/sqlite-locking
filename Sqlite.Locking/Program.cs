@@ -2,6 +2,7 @@
 using Sqlite.Locking;
 
 Actions.AddItem();
+GC.Collect();
 var lockers = FileUtil.WhoIsLocking(MyContext.DbFile);
 var locker  = lockers.Any() ? lockers.First().ProcessName : "NONE"; 
 Console.WriteLine($"Locked by: {locker}");
@@ -15,6 +16,17 @@ public class Foo
 
 public class MyContext : DbContext
 {
+    ~MyContext()
+    {
+        Console.WriteLine("Finaliser was called.");
+    }
+
+    public override void Dispose()
+    {
+        base.Dispose();
+        Console.WriteLine("Dispose was called.");
+    }
+
     public static readonly string DbFile = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "_temp.db");
 
     public DbSet<Foo> Summaries { get; set; }
