@@ -33,10 +33,7 @@ public class MyContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
-        
-        builder
-           .Entity<Foo>()
-           .HasKey(nameof(Foo.Id));
+        builder.Entity<Foo>().HasKey(nameof(Foo.Id));
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder options)
